@@ -11,6 +11,7 @@ Vue.prototype.$auth = new AuthService();
 Vue.prototype.$darkmode = false
 Vue.prototype.$store = store
 Vue.prototype.$http = axios
+Vue.prototype.$mode = true
 if(process.env.NODE_ENV == 'development'){
   axios.defaults.baseURL = `http://127.0.0.1:5000/`;
 

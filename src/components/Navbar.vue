@@ -10,7 +10,7 @@
       </div>
       <ul class="hidden lg:flex items-center">
         <li>
-          <div @click="setMode(!mode)" class="cursor-pointer border rounded-full px-6 h-6 relative mt-1 mr-2">
+          <div @click="setMode" class="cursor-pointer border rounded-full px-6 h-6 relative mt-1 mr-2">
             <span class="transition duration-500 ease-in-out " :class="mode ? ' top-0 bg-white rounded-full w-6 h-6 absolute transform -translate-x-6' : 'bg-gray-400 rounded-full w-6 h-6 absolute top-0' " ></span>
           </div>
         </li>

@@ -15,7 +15,7 @@ const store = new Vuex.Store({
     movies: [],
     totalQuestions: 0,
     isLoading: true,
-    mode: localStorage.getItem('DARK_MODE') === null ? true : localStorage.getItem('DARK_MODE')
+    mode: true
   },
   mutations: {
     SET_ACTORS(state, payload) {
@@ -193,10 +193,21 @@ const store = new Vuex.Store({
       }
     },
 
-    setMode({commit}, value) {
+    setMode({commit}) {
       // console.log(state);
-      localStorage.setItem('DARK_MODE', value);
-      commit('SET_MODE', value)
+      if(localStorage.getItem('DARK_MODE') === 'true'){
+        commit('SET_MODE', false)
+        localStorage.setItem('DARK_MODE', 'false')
+      }else if((localStorage.getItem('DARK_MODE') === 'false')) {
+        commit('SET_MODE', true)
+        localStorage.setItem('DARK_MODE', 'true')
+      }else if((localStorage.getItem('DARK_MODE') === null)){
+        commit('SET_MODE', false)
+        localStorage.setItem('DARK_MODE', 'false')
+
+      }
+      
+      
       
 
     }
