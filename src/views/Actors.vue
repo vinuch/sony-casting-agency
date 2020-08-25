@@ -9,10 +9,16 @@
     <div v-else class="flex flex-wrap justify-around mb-16">
       <Actorcard v-for="actor in actors" :key="actor.name + actor.id" :actor="actor"/>
     </div>
+    <div v-if="!isLoading && actors.length == 0">
+      Looks like you are not logged In. You kind of need to be logged in to access this app.
+       <button class="block mx-auto my-6 bg-blue-500 px-6 py-1 text-white rounded-md font-bold">
+             <a   :href="loginLink">Login</a>
+          </button>
+    </div>
 
     
 
-    <button @click="creating = !creating" class="mx-4 py-2 rounded-md px-12 text-white" :class="!auth.can('post:actor') ? 'bg-blue-300 cursor-not-allowed': 'bg-blue-500'">
+    <button v-if="!actors.length == 0" @click="creating = !creating" class="mx-4 py-2 rounded-md px-12 text-white" :class="!auth.can('post:actor') ? 'bg-blue-300 cursor-not-allowed': 'bg-blue-500'">
          Add Actor
     </button>
         
@@ -43,7 +49,8 @@ export default {
   data(){
     return {
       creating: false,
-      auth: this.$auth
+      auth: this.$auth,
+      loginLink: this.$auth.build_login_link(),
     }
   },
   methods: {

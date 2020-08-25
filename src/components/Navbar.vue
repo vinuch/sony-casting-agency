@@ -37,7 +37,7 @@
       </button>
     </nav>
     <transition name="fade">
-      <div v-if="mobileNav" class="absolute w-full z-20 sm:hidden block transform translate-y-16" :class="mode ? 'bg-blue-900 text-white' : 'bg-white'">
+      <div v-if="mobileNav" class="fixed w-full z-20 sm:hidden block transform translate-y-16" :class="mode ? 'bg-blue-900 text-white' : 'bg-white'">
         <ul class="py-4">
           <li class="py-2 text-left px-4">
             <div @click="setMode" class="cursor-pointer border rounded-full px-6 h-6 relative mt-1 mr-2 w-12">
@@ -74,7 +74,7 @@ import { mapActions, mapGetters } from 'vuex'
       return {
         mobileNav: false,
         auth: this.$auth,
-        loginLink: this.$auth.build_login_link('/tabs/user-page'),
+        loginLink: this.$auth.build_login_link(''),
       }
     },
     methods: {
