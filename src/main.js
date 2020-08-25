@@ -11,7 +11,12 @@ Vue.prototype.$auth = new AuthService();
 Vue.prototype.$darkmode = false
 Vue.prototype.$store = store
 Vue.prototype.$http = axios
-axios.defaults.baseURL = `http://127.0.0.1:5000/`;
+if(process.env.NODE_ENV == 'development'){
+  axios.defaults.baseURL = `http://127.0.0.1:5000/`;
+
+} else{
+  axios.defaults.baseURL = `https://casting-app.netlify.app`;
+}
 
 
 Vue.use(Vuex)
