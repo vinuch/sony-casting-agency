@@ -32,7 +32,8 @@
         </li>
       </ul>
       <button @click="mobileNav = !mobileNav" class="block lg:hidden">
-        <img class="w-8 p-1" src="../assets/images/menu.svg" alt="menu icon">
+        <img v-if="mode" class="w-8 p-1" src="../assets/images/menu-white.svg" alt="menu icon">
+        <img v-else class="w-8 p-1" src="../assets/images/menu-black.svg" alt="menu icon">
       </button>
     </nav>
     <transition name="fade">
