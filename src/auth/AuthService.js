@@ -4,8 +4,7 @@ export default class AuthService {
   url = 'dev-vince.us'
   audience = 'casting_agency'
   clientId = 'ZjMwTsC1ReuY5060zbDOSfmBgaCC6okg'
-  callbackURL = process.env.URL || 'http://localhost:8080'
-
+  callbackURL = location.origin
   token=''
   payload
 
