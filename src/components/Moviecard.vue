@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!editing" class="bg-gray-100 rounded-md mb-8 sm:w-3/12 py-10 px-6 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-4 hover:shadow-xl hover:scale-105">
+  <div v-if="!editing" class="bg-gray-100 rounded-md mb-8 mx-2 sm:w-3/12 py-10 px-6 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-4 hover:shadow-xl hover:scale-105">
     
     <img class="rounded-lg shadow-2xl w-72 h-auto mb-10" :src="movie.cover_image" alt="idris elba">
     <p class="font-bold tracking-wider text-lg mb-4 capitalize">{{movie.title}}</p>

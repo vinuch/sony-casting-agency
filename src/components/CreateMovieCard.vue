@@ -24,7 +24,7 @@
       <textarea placeholder="brief description of movie" maxlength = "300" type="text" name="bio" class="rounded border w-full py-2 mt-2 h-32 text-gray-500 px-2" v-model="new_movie.description"></textarea>
     </div>
      <div class="flex justify-center mt-6 ">
-      <button @click="createMovieMethod(new_movie); setCreating" class="mx-4 py-1 rounded-md px-4 bg-blue-500 text-white">
+      <button @click="createMovieMethod(new_movie); setCreating()" class="mx-4 py-1 rounded-md px-4 bg-blue-500 text-white">
         Create
       </button>
         <button @click="setCreating" class="mx-4 py-1 rounded-md px-4 bg-red-500 text-white">
