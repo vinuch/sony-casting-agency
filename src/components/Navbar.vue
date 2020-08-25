@@ -31,10 +31,37 @@
           </button>
         </li>
       </ul>
-      <button class="block lg:hidden">
+      <button @click="mobileNav = !mobileNav" class="block lg:hidden">
         <img class="w-8 p-1" src="../assets/images/menu.svg" alt="menu icon">
       </button>
     </nav>
+    <transition name="fade">
+      <div v-if="mobileNav" class="absolute w-full z-20 sm:hidden block transform translate-y-16" :class="mode ? 'bg-blue-900 text-white' : 'bg-white'">
+        <ul class="py-4">
+          <li class="py-2 text-left px-4">
+            <div @click="setMode" class="cursor-pointer border rounded-full px-6 h-6 relative mt-1 mr-2 w-12">
+              <span class="transition duration-500 ease-in-out " :class="mode ? ' top-0 bg-white rounded-full w-6 h-6 absolute transform -translate-x-6' : 'bg-gray-400 rounded-full w-6 h-6 absolute top-0' " ></span>
+            </div>
+          </li>
+          <li class="py-2 text-left px-4">
+            <a href="/actors" class="nav-link border-b-2 border-blue-300 text-gray-600">Actors</a> 
+          </li>
+          <li class="py-2 text-left px-4">
+            <a href="/movies" class="nav-link hover:text-gray-600">Movies</a> 
+          </li>
+          <li class="py-2 text-left px-4">
+            <button v-if="auth.token" @click="logout" class="bg-blue-500 px-4 py-1 text-white rounded-md font-bold">
+              
+              <span>Logout</span>
+            
+            </button>
+            <button v-else class="bg-blue-500 px-4 py-1 text-white rounded-md font-bold">
+              <a   :href="loginLink">Login</a>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -44,6 +71,7 @@ import { mapActions, mapGetters } from 'vuex'
   export default {
     data(){
       return {
+        mobileNav: false,
         auth: this.$auth,
         loginLink: this.$auth.build_login_link('/tabs/user-page'),
       }
@@ -84,5 +112,13 @@ import { mapActions, mapGetters } from 'vuex'
 .nav-link:hover::after {
     width: 100%;
     transition: width .3s;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s;
+}
+.fade-enter, .fade-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 </style>
