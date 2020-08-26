@@ -1,6 +1,6 @@
 <template>
 
-    <div v-if="!editing" class="bg-white  rounded-md mb-8 sm:w-3/12 py-10 px-6 mx-2 cursor-pointer transition duration-500 ease-in-out transform hover:-translate-y-4 hover:shadow-xl hover:scale-105">
+    <div v-if="!editing" class="bg-white  rounded-md mb-8 sm:w-3/12 py-10 px-6 mx-2 cursor-pointer transition duration-500 ease-in-out transform sm:hover:-translate-y-4 sm:hover:shadow-xl sm:hover:scale-105">
       <div class=" mb-6">
         <img class="rounded-lg shadow-2xl w-full h-auto" :src="actor.image" :alt="'image of ' + actor.name">
       </div>
