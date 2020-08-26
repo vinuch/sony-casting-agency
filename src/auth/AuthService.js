@@ -9,7 +9,6 @@ export default class AuthService {
   payload
 
   constructor() { }
-  // https://dev-vince.us.auth0.com/authorize?audience=casting_agency&response_type=token&client_id=ZjMwTsC1ReuY5060zbDOSfmBgaCC6okg&redirect_uri=http://localhost:8080
   build_login_link() {
     let link = 'https://';
     link += this.url + '.auth0.com';
