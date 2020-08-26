@@ -36,6 +36,7 @@ const store = new Vuex.Store({
     async getActors({ commit}) {
       // console.log(this._vm.$auth.token);
       if(this._vm.$auth.can('get:actors')){
+        commit('SET_LOADING', true)
         AuthAxios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('JWTS_LOCAL_KEY') || null
         await AuthAxios
           .get("/actors")
@@ -57,6 +58,7 @@ const store = new Vuex.Store({
 
     async getMovies({ commit }) {
       if(this._vm.$auth.can('get:movies')){
+        commit('SET_LOADING', true)
         AuthAxios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('JWTS_LOCAL_KEY') || null
         await AuthAxios
           .get("/movies")
